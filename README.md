@@ -1,24 +1,52 @@
-# 🌿 HealTrip – Healing Through Travel
+# HealTrip
 
-**HealTrip** is a beginner-level mental wellness web application designed to help individuals suffering from stress, anxiety, or depression by offering personalized travel experiences aimed at emotional healing and self-care.
+HealTrip is a Flask-based web application for managing health trip (appointment/consultation) workflows and serving a simple web interface. The repository contains the Flask app entrypoint, templates and static assets, and supporting configuration.
 
-## ✨ Features
+> This README was updated after analyzing the repository structure and files (app.py, templates/, static/, requirements.txt, instance/).
 
-- 🧠 **Mood-Based Trip Suggestions** – Personalized travel plans based on users' emotional state
-- 🌍 **Wellness Packages** – Yoga retreats, nature getaways, creative therapy trips, and more
-- 💬 **AI-Powered Chatbot (Optional)** – Recommend trips using mood analysis and natural language input
-- 👥 **Community Interaction** – Users can share experiences and tips
-- 💼 **Partner Support** – Connects with therapists and wellness hosts
+## Project structure (observed)
+- app.py — Flask application entrypoint and route definitions
+- templates/ — Jinja2 HTML templates used by the app
+- static/ — CSS, JavaScript, images, and other static assets
+- instance/ — instance-specific configuration (Flask instance folder)
+- requirements.txt — Python dependencies
+- venv/ — local virtual environment (committed; recommended to remove from repo and add to .gitignore)
+- __pycache__/ — Python cache files (can be ignored)
 
-## 🛠️ Tech Stack
+## Key files
+- app.py: starts the Flask app and registers routes. Use this as the development entrypoint.
+- requirements.txt: lists packages required to run the app locally.
+- templates/: contains the HTML pages served by the app.
 
-| Layer      | Technology Used        |
-|------------|------------------------|
-| Frontend   | HTML, CSS, JavaScript (or React) |
-| Backend    | Python (Flask or Django) |
-| Database   | MySQL or Firebase      |
-| Optional   | AI Chatbot (LLM-based or rule-based) |
+## Quick start (local development)
+1. Clone the repo
+   git clone https://github.com/Midhungirish2002/healtrip.git
+   cd healtrip
 
-## 🧱 Project Structure
+2. Create a virtual environment (recommended) and install dependencies
+   python3 -m venv venv
+   source venv/bin/activate  # macOS / Linux
+   venv\Scripts\activate    # Windows
+   pip install -r requirements.txt
 
-# healtrip
+3. Configuration
+- If the app uses instance config, create an `instance/config.py` or set environment variables as needed. Check `app.py` for expected configuration keys (SECRET_KEY, DB paths, etc.).
+
+4. Run the app
+   python app.py
+   Open http://127.0.0.1:5000 or the address printed by the app in your browser.
+
+## Notes & recommendations
+- Remove the committed `venv/` directory from the repository and add `venv/` to `.gitignore`. Committing virtual environments is not recommended.
+- Add a `.gitignore` entry for `__pycache__/` and other temporary files if missing.
+- If you plan to deploy, configure production settings and use a WSGI server (gunicorn/uwsgi).
+- Document any environment variables or instance config keys required by the app.
+
+## Tests
+- No automated tests found. Consider adding unit tests for key routes and functionality.
+
+## Contributing
+Contributions are welcome. Please open an issue describing changes or create a pull request.
+
+## License
+Add a LICENSE file to make the project's license explicit.
